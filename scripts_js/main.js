@@ -21,26 +21,37 @@ function showList(colorList) {
     document.getElementById("h1_code").innerHTML = colorList[0];
     colorList = colorList.sort(function(a, b){return 0.5 - Math.random()});
 
-    for (let x = 1; x < 7; x++) {
+    for (let x = 0; x < 6; x++) {
         var id = "button" + x;
         document.getElementById(id).style.background = colorList[x];
     }
 }
 
+/* Enable all buttons and reset borders */
+function resetScreen() {
+    document.querySelectorAll('button').forEach(elem => {
+        elem.style.border = "4px solid black";  
+    });
+}
+
 /* Call required functions */
-function main() {
+function start() {    
     var colorList = []
     colorList.push(getColorCode());
     colorList = buttonColors(colorList);
     answer = colorList[0];
-    showList(colorList);
+    showList(colorList);    
+    resetScreen();
 }
 
 function checkColor(clicked) {
-    var color = clicked.style.backgroundColor
+    var color = clicked.style.backgroundColor;
     if (color == answer) {
-        console.log("JAA");
+        clicked.style.border = "10px solid #33cc33";
+        setTimeout(start, 1000);
+    } else {
+        clicked.style.border = "10px solid red";
     }
 }
 
-window.onload = main;
+window.onload = start;
