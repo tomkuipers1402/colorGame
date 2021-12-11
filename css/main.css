@@ -3,18 +3,18 @@ body {
     text-align: center;
 }
 
-h1 {
-    font-size: 2em;
+#h1_title {
+    font-size: 3em;
 }
 
-#h1_code {
+h1{
     font-size: 4em;
 }
 
 #div_buttons {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    margin: 0% 10% 5% 10%;
+    margin: 0% 10% 0% 10%;
 }
 
 #div_buttons button {
